@@ -1,0 +1,146 @@
+services:
+  app:
+    image: "online-shop:latest"
+    build:
+      context: .
+    entrypoint: ["./entrypoint.sh"]
+    networks:
+      - net
+    volumes:
+      - app-media:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      STRIPE_API_VERSION: ${STRIPE_API_VERSION}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET}
+    env_file:
+      - .env
+
+  db:
+    image: mysql:9.3.0
+    networks:
+      - net
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+    env_file:
+      - .env
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h localhost -u${DATABASE_USER} -p${DATABASE_PASSWORD}",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+      start_period: 10s
+
+  migrate:
+    extends:
+      service: app
+    command: python manage.py migrate
+    depends_on:
+      app:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+
+  server:
+    extends:
+      service: app
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  rabbitmq:
+    image: rabbitmq:4.1.0-management
+    ports:
+      - 15672:15672
+    networks:
+      - net
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  redis:
+    image: redis:8.0.2
+    networks:
+      - net
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  worker:
+    extends:
+      service: app
+    command: celery -A django_project worker -l info
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      app:
+        condition: service_completed_successfully
+
+  flower:
+    extends:
+      service: app
+    command:
+      - celery
+      - -A
+      - django_project
+      - flower
+      - --broker_api=http://rabbitmq:15672/api/
+    ports:
+      - 5555:5555
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      worker:
+        condition: service_started
+
+  stripe-cli:
+    image: stripe/stripe-cli:v1.27.0
+    command: listen --forward-to http://server:8000/payment/webhook/
+    networks:
+      - net
+    environment:
+      STRIPE_API_KEY: ${STRIPE_SECRET_KEY}
+    env_file:
+      - .env
+
+networks:
+  net:
+
+volumes:
+  app-media:
+  db-data:
+  rabbitmq-data:
+  redis-data:
