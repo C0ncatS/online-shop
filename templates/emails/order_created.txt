@@ -1,0 +1,6 @@
+Dear {{ order.first_name }},
+
+Thank you for your order!
+
+Your order ID is {{ order.id }}.
+We are processing your order and will notify you once it ships.

@@ -44,7 +44,7 @@ A complete and extensible e-commerce platform built with Django. This project su
 | Background Tasks | Celery + RabbitMQ   |
 | Task Monitoring  | Flower              |
 | Payments         | Stripe              |
-| Emails           | Django Console Backend |
+| Emails           | SMTP |
 | Frontend         | Django Templates (HTML/CSS) |
 
 ---
@@ -73,6 +73,11 @@ DATABASE_USER=shopuser
 DATABASE_PASSWORD=shoppass
 DATABASE_HOST=db
 DATABASE_PORT=3306
+
+# SMTP
+EMAIL_HOST_USER=XXXX
+EMAIL_HOST_PASSWORD=XXXX
+DEFAULT_FROM_EMAIL=XXXX@XXXX.XXX
 ```
 
 ### 3. Build and Start All Services
@@ -101,18 +106,6 @@ docker compose exec server python manage.py createsuperuser
 
 ---
 
-## 🧠 Services Overview
-
-## 📨 Email Notifications
-
-- Emails are printed to the terminal using the console backend:
-  ```python
-  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-  ```
-- After placing an order, Celery sends a confirmation email asynchronously.
-
----
-
 ## 🔐 Admin Panel
 
 After creating a superuser, access the admin panel at:
@@ -124,7 +117,6 @@ After creating a superuser, access the admin panel at:
 ## ✅ To-Do
 
 - [ ] Add user registration/login  
-- [ ] Enable SMTP for real email sending  
 - [ ] Add product search and pagination  
 - [ ] Add production Docker settings  
 

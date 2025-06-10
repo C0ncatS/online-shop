@@ -159,7 +159,10 @@ SESSION_CACHE_ALIAS = "sessions"
 
 CART_SESSION_ID = "cart"
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = "sandbox.smtp.mailtrap.io"
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = "2525"
 
 CELERY_BROKER_URL = "amqp://rabbitmq:5672//"
 CELERY_RESULT_BACKEND = "redis://redis:6379/0"
