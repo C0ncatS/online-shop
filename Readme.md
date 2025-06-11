@@ -11,7 +11,7 @@ A complete and extensible e-commerce platform built with Django. This project su
 - 📦 Checkout with customer info collection  
 - 💳 Stripe integration with webhook support via Stripe CLI  
 - ✅ Order confirmation via webhook event `checkout.session.completed`  
-- 📧 Post-payment email notification (via Celery task)  
+- 📧 Post-order email notification (via Celery task)  
 - ⚡ Redis for caching  
 - 🪄 Celery + RabbitMQ for background processing  
 - 🌸 Flower dashboard for monitoring Celery tasks  
