@@ -37,6 +37,10 @@ RUN apt-get update && \
     gosu \
     pkg-config \
     libmariadb-dev \
+    libpango-1.0-0 \
+    libharfbuzz0b \
+    libpangoft2-1.0-0 \
+    libharfbuzz-subset0 \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
