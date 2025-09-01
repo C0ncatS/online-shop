@@ -135,7 +135,3 @@ After creating a superuser, access the admin panel at:
 ## 📄 License
 
 MIT License
-
----
-
-Made with ❤️ by [@C0ncatS](https://github.com/C0ncatS)
