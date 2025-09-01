@@ -8,27 +8,19 @@ services:
       - net
     volumes:
       - app-media:/app/media
+      - .:/app
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
-    environment:
-      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USER: ${DATABASE_USER}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY}
-      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
-      STRIPE_API_VERSION: ${STRIPE_API_VERSION}
-      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET}
     env_file:
       - .env
 
   db:
-    image: mysql:9.3.0
+    image: mysql:8.0.33
+    ports:
+      - 3336:3306
     networks:
       - net
     volumes:
