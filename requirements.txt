@@ -13,6 +13,7 @@ click-plugins==1.1.1
 click-repl==0.3.0
 cssselect2==0.8.0
 Django==5.0.14
+django-rosetta==0.10.2
 flower==2.0.1
 fonttools==4.59.2
 humanize==4.12.3
@@ -24,6 +25,7 @@ packaging==25.0
 pathspec==0.12.1
 pillow==10.3.0
 platformdirs==4.3.8
+polib==1.2.0
 prometheus_client==0.22.1
 prompt_toolkit==3.0.51
 pycparser==2.22

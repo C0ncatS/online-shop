@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-05 14:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: cart/forms.py:12 templates/cart/detail.html:15
+#: templates/orders/order/pdf.html:25 templates/payments/process.html:16
+msgid "Quantity"
+msgstr "الكمية"
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr "الكوبون"
+
+#: django_project/settings.py:127
+msgid "English"
+msgstr "الأنجليزية"
+
+#: django_project/settings.py:128
+msgid "Arabic"
+msgstr "العربية"
+
+#: templates/cart/detail.html:5 templates/cart/detail.html:9
+msgid "Your shopping cart"
+msgstr "عربة التسوق الخاصة بك"
+
+#: templates/cart/detail.html:13 templates/payments/process.html:13
+msgid "Image"
+msgstr "الصورة"
+
+#: templates/cart/detail.html:14 templates/orders/order/pdf.html:23
+#: templates/payments/process.html:14
+msgid "Product"
+msgstr "المنتج"
+
+#: templates/cart/detail.html:16 templates/cart/detail.html:43
+msgid "Remove"
+msgstr "إزالة"
+
+#: templates/cart/detail.html:17
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#: templates/cart/detail.html:18 templates/orders/order/pdf.html:24
+#: templates/payments/process.html:15
+msgid "Price"
+msgstr "السعر"
+
+#: templates/cart/detail.html:37
+msgid "Update"
+msgstr "تحديث"
+
+#: templates/cart/detail.html:53 templates/orders/order/pdf.html:40
+#: templates/payments/process.html:35
+msgid "Subtotal"
+msgstr "المجموع الجزئي"
+
+#: templates/cart/detail.html:59 templates/payments/process.html:43
+#, python-format
+msgid ""
+"\n"
+"                            \"%(code)s\" coupon (%(discount)s%% off)\n"
+"                        "
+msgstr ""
+"\n"
+"                            \"%(code)s\" كوبون (%(discount)s%% خصم)\n"
+"                        "
+
+#: templates/cart/detail.html:70 templates/orders/order/create.html:26
+#: templates/orders/order/pdf.html:58 templates/payments/process.html:17
+#: templates/payments/process.html:54
+msgid "Total"
+msgstr "المجموع"
+
+#: templates/cart/detail.html:78 templates/shop/product/detail.html:23
+msgid "People who bought this also bought"
+msgstr "الأشخاص الذين اشتروا هذا اشتروا أيضا"
+
+#: templates/cart/detail.html:91
+msgid "Apply a coupon"
+msgstr "تطبيق كوبون"
+
+#: templates/cart/detail.html:91
+msgid "Apply"
+msgstr "تطبيق"
+
+#: templates/cart/detail.html:94
+msgid "Continue shopping"
+msgstr "استمرار التسوق"
+
+#: templates/cart/detail.html:95 templates/orders/order/create.html:7
+msgid "Checkout"
+msgstr "الدفع"
+
+#: templates/orders/order/create.html:9
+msgid "Your order"
+msgstr "طلبك"
+
+#: templates/orders/order/create.html:19
+#, python-format
+msgid ""
+"\n"
+"                        \"%(code)s\" (%(discount)s%% off)\n"
+"                    "
+msgstr ""
+"\n"
+"                        \"%(code)s\" (%(discount)s%% خصم)\n"
+"                    "
+
+#: templates/orders/order/create.html:31
+msgid "Place order"
+msgstr "وضع الطلب"
+
+#: templates/orders/order/pdf.html:5
+msgid "My Shop"
+msgstr "متجري"
+
+#: templates/orders/order/pdf.html:7
+msgid "Invoice no."
+msgstr "رقم الفاتورة"
+
+#: templates/orders/order/pdf.html:12
+msgid "Bill to"
+msgstr "الفاتورة إلى"
+
+#: templates/orders/order/pdf.html:19
+msgid "Items bought"
+msgstr "العناصر المشترية"
+
+#: templates/orders/order/pdf.html:26
+msgid "Cost"
+msgstr "التكلفة"
+
+#: templates/orders/order/pdf.html:47
+#, python-format
+msgid ""
+"\n"
+"                                \"%(code)s\" (%(discount)s%% off)\n"
+"                            "
+msgstr ""
+"\n"
+"                                \"%(code)s\" (%(discount)s%% خصم)\n"
+"                            "
+
+#: templates/orders/order/pdf.html:64
+msgid "Paid"
+msgstr "مدفوع"
+
+#: templates/orders/order/pdf.html:64
+msgid "Pending payment"
+msgstr "دفع معلق"
+
+#: templates/payments/canceled.html:5
+msgid "Payment canceled"
+msgstr "الدفع ملغي"
+
+#: templates/payments/canceled.html:9
+msgid "Your payment has not been processed"
+msgstr "الدفع لم يتم معالجته"
+
+#: templates/payments/canceled.html:10
+msgid "There was a problem processing your payment."
+msgstr "هناك مشكلة في معالجة الدفع."
+
+#: templates/payments/completed.html:5
+msgid "Payment successful"
+msgstr "تم الدفع"
+
+#: templates/payments/completed.html:9
+msgid "Your payment was successful"
+msgstr "الدفع ناجح"
+
+#: templates/payments/completed.html:10
+msgid "Your payment has been processed successfully."
+msgstr "تمت عملية الدفع بنجاح."
+
+#: templates/payments/process.html:5
+msgid "Pay your order"
+msgstr "دفع طلبك"
+
+#: templates/payments/process.html:9
+msgid "Order summary"
+msgstr "ملخص الطلب"
+
+#: templates/payments/process.html:61
+msgid "Pay now"
+msgstr "ادفع الآن"
+
+#: templates/shop/base.html:8 templates/shop/base.html:14
+msgid "My shop"
+msgstr "متجري"
+
+#: templates/shop/base.html:20
+msgid "Your cart"
+msgstr "عربة التسوق الخاصة بك"
+
+#: templates/shop/base.html:22
+#, python-format
+msgid ""
+"\n"
+"                            %(items)s item, $%(total)s\n"
+"                            "
+msgid_plural ""
+"\n"
+"                            %(items)s items, $%(total)s\n"
+"                        "
+msgstr[0] ""
+"\n"
+"                            %(items)s عنصر، $%(total)s\n"
+"                            "
+msgstr[1] ""
+"\n"
+"                            %(items)s عنصر، $%(total)s\n"
+"                            "
+msgstr[2] ""
+"\n"
+"                            %(items)s عنصران، $%(total)s\n"
+"                            "
+msgstr[3] ""
+"\n"
+"                            %(items)s عناصر، $%(total)s\n"
+"                            "
+msgstr[4] ""
+"\n"
+"                            %(items)s عناصر، $%(total)s\n"
+"                            "
+msgstr[5] ""
+"\n"
+"                            %(items)s عناصر، $%(total)s\n"
+"                            "
+
+#: templates/shop/base.html:29
+msgid "Your cart is empty."
+msgstr "عربة التسوق الخاصة بك فارغة."
+
+#: templates/shop/product/detail.html:18
+msgid "Add to cart"
+msgstr "إضافة إلى عربة التسوق"
+
+#: templates/shop/product/list.html:8 templates/shop/product/list.html:27
+msgid "Products"
+msgstr "المنتجات"
+
+#: templates/shop/product/list.html:14
+msgid "Categories"
+msgstr "الفئات"
+
+#: templates/shop/product/list.html:17
+msgid "All"
+msgstr "الكل"
